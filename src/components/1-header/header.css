@@ -102,6 +102,9 @@ header .fixed{
       inset:0;
      background-color: rgba(40,40,48,0.9);
       z-index: 11;
+      /* filter: blur(5px); */
+      /* filter: drop-shadow(0 0 0.75rem crimson); */
+        backdrop-filter: blur(4px);
     /* top: 0;
     left: 0;
     right: 0;
