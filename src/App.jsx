@@ -11,7 +11,7 @@ function App() {
   // const [count, setCount] = useState(0)
 
   return (
-    <div className="container">
+    <div id="up" className="container">
 
 <Header/>
 <div className="divider"/>
@@ -23,8 +23,10 @@ function App() {
 <div className="divider"/>
 <Footer/>
 
-
-
+<a href="#up">
+  <button className="scroll2top icon-keyboard_arrow_up"></button>
+  
+</a>
 
 
 

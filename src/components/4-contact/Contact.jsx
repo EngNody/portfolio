@@ -14,7 +14,7 @@ export default function Contact() {
 
        <div className="flex">
 
-        <form action="" className="border">
+        <form action="">
 
        <div className="flex">
            <label htmlFor="email">Email Address:</label>
@@ -32,7 +32,7 @@ export default function Contact() {
         </form>
 
 
-        <div className="border animation">animation</div>
+        <div className="animation">animation</div>
        </div>
     </section>
   )
