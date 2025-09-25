@@ -65,7 +65,7 @@ main section.right-section.flex{
     row-gap: 2rem;
     flex-wrap: wrap;
     justify-content: center;
-    /* flex-grow: 1; */
+    flex-grow: 1;
 }
 
 .card{
@@ -94,6 +94,7 @@ main section.right-section .card .box{
 main section.right-section .card .box .title{
     font-size: 25px;
  color: var(--title);
+ text-transform: capitalize;
 }
 
 main section.right-section .card .box .suptitle{

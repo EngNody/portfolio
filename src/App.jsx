@@ -1,5 +1,5 @@
-// import { useState } from 'react'
 
+import { useEffect, useState } from "react";
 import Header from "./components/1-header/Header"
 import Hero from './components/2-hero/Hero';
 import Main from './components/3-main/Main';
@@ -8,7 +8,23 @@ import Footer from './components/5-footer/Footer';
 
 
 function App() {
-  // const [count, setCount] = useState(0)
+
+
+useEffect(() => {
+  
+  window.addEventListener("scroll" ,() => {
+    // console.log(window.scrollY)
+    if (window.scrollY > 300 ) {
+      setshowscrollbtn(1)
+    }else{
+      setshowscrollbtn(0)
+    }
+  }
+  )
+
+}, []);
+
+  const [showscrollbtn, setshowscrollbtn] = useState(0);
 
   return (
     <div id="up" className="container">
@@ -23,7 +39,10 @@ function App() {
 <div className="divider"/>
 <Footer/>
 
-<a href="#up">
+
+
+  <a  style={{opacity:`${showscrollbtn}`,transition:"3s"}} href="#up">
+
   <button className="scroll2top icon-keyboard_arrow_up"></button>
   
 </a>
@@ -31,12 +50,6 @@ function App() {
 
 
 
-    
-      {/* <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-      </div> */}
     </div>
   )
 }

@@ -1,56 +1,147 @@
-import React from 'react'
-import './main.css'
+import React, { useState } from "react";
+import "./main.css";
+import { myProjects } from "./MyProjects";
+
+
+//  تم نقل المشاريع في ملف اخر باسم MyProjects للتنظيم
+
 
 
 export default function Main() {
+  const [currentActive, setcurrentActive] = useState("all");
+  const [Arr, setArr] = useState(myProjects);
+
+
+  const handleclick= (buttonCategory) => {
+      setcurrentActive(buttonCategory);
+
+                 const newArr = myProjects.filter((item) => {
+
+                   // ======== Ali way 1 ========wrong with me =========
+
+                  const zzz = item.category.filter((myItem) => {
+                       return   myItem === buttonCategory ;             
+                  })
+                  //  لانها بترجع array
+                  return zzz[0] === buttonCategory ;
+
+                  // ======== Ali way 2 ========wrong with me =========
+
+                  // const zzz = item.category.find((myItem) => {
+                  //      return   myItem === buttonCategory ;             
+                  // })
+                  //   لانها بترجع عنصر
+                  // return zzz ===  buttonCategory;
+
+
+            //   ======================== chat Ai way ================
+
+            // if (Array.isArray(item.category)) {
+            //     // category is an array
+            //     return item.category.includes(buttonCategory);
+            //   } else {
+            //     // category is a string
+            //     return item.category === buttonCategory;
+            //   }
+            //  =======================================================
+              })
+
+              setArr(newArr)
+            
+    
+  }
+  
+
+
   return (
     <div>
+      <main className="flex">
 
-<main className='flex'>
-  <section className=' flex left-section'>
-   <button className='active'>all projects</button>
-   <button>Html & Css</button>
-   <button>Java Script</button>
-   <button>React & MUI</button>
-   <button>Node & Express</button>
-  </section>
-  
+        <section className="flex left-section">
+          <button
+            className={currentActive === "all" ? "active" : null}
+            onClick={() => {
 
-    <section className='flex right-section'>
-     
-{["sessionStorage","ggg","lll",6,9].map((item) => {    
-return(
- <article key={item} className='card'>
-    <img width={266} src="./download.webp" alt="" />
+            handleclick("all")
+             setArr (myProjects);
 
-    <div style={{width:"266px"}} className="box">
-      <h1 className='title'>Landing page 2</h1>
-      <p className='suptitle'>A simple landing page made with Html , Css and react. It is a responsive design and works on all devices.</p>
-      
-      <div className="flex icons">
-      <div className='flex' style={{gap:"11px"}}>
-          <div className="icon-link"></div>
-          <div className="icon-github"></div>
-      </div>
-        <a className='link flex' href=""> 
-          more
-          <span className='icon-arrow-right'></span>
-        </a>
-      </div>
+
+            }}
+          >
+            all projects
+          </button>
+
+          <button
+            onClick={() => {
+             
+            handleclick("css")
+
+            }}
+            className={currentActive === "css" ? "active" : null}
+          >
+            Html & Css
+          </button>
+          <button
+            className={currentActive === "java" ? "active" : null}
+            onClick={() => {
+              handleclick("java")
+            }}
+          >
+            Java Script
+          </button>
+          <button
+            className={currentActive === "react" ? "active" : null}
+            onClick={() => {
+
+            handleclick("react")
+
+            }}>
+            React & MUI
+          </button>
+          <button
+            className={currentActive === "node" ? "active" : null}
+            onClick={() => {
+             
+            handleclick("node")
+
+            }}
+          >
+            Node & Express
+          </button>
+        </section>
+
+        <section className="flex right-section">
+
+          {Arr.map((item) => {
+            return (
+              <article key={item.imgPath} className="card">
+                <img width={266} src={item.imgPath} alt="" />
+
+                <div style={{ width: "266px" }} className="box">
+                  <h1 className="title">{item.projectTitle}</h1>
+                  <p className="suptitle">
+                    A simple landing page made with Html , Css and react. It is
+                    a responsive design and works on all devices.
+                  </p>
+
+                  <div className="flex icons">
+                    <div className="flex" style={{ gap: "11px" }}>
+                      <div className="icon-link"></div>
+                      <div className="icon-github"></div>
+                    </div>
+                    <a className="link flex" href="">
+                      more
+                      <span className="icon-arrow-right"></span>
+                    </a>
+                  </div>
+                </div>
+              </article>
+            );
+          })}
+        </section>
+
+
+      </main>
     </div>
-      </article>
-
-)})}
-
-  
-
-
-
-
-  </section>
-</main>
-
-
-    </div>
-  )
+  );
 }
