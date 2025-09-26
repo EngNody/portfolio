@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './header.css'
 
 
@@ -6,15 +6,31 @@ import './header.css'
 export default function Header() {
 
 const [showModel, setshowModel] = useState(false);
+const [mytheme, setmytheme] = useState(
+  localStorage.getItem("currentMode") ?? "light"
+);
+
+useEffect(() => {
+
+  if (mytheme==="light") {
+     document.body.classList.remove("dark")
+     document.body.classList.add("light")
+
+  }else{
+     document.body.classList.add("dark")
+     document.body.classList.remove("light")
+  }
+
+}, [mytheme]);
 
 
   return (
     <header className='flex'>
 
-        <button className='menu icon-menu' onClick={() => {
+        <button  className="menu icon-menu " onClick={() => {
           setshowModel(true)
         }
-        }/> 
+        }></button> 
 
       <div/>
 
@@ -27,8 +43,22 @@ const [showModel, setshowModel] = useState(false);
   <li><a href="">Contact</a></li>
 </ul>
       </nav>
-      <button className='mode'>
-        <span  className='icon-moon-o'></span>
+      <button onClick={() => {
+        // send value to local storage (LS)
+         localStorage.setItem("currentMode",(mytheme === "dark" ? "light" : "dark"))
+
+        // get value to local storage (LS)
+         setmytheme(localStorage.getItem("currentMode"))
+
+          // console.log(localStorage.getItem("currentMode"))
+      }
+      } className='mode'>
+       
+       {(mytheme === "dark") ?      
+         <span  className='icon-moon-o'></span>:
+         <span  className='icon-sun'></span>        
+       }
+
       </button>
 
 {showModel  && (

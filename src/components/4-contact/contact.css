@@ -52,18 +52,28 @@ section.contact-us #email, section.contact-us #Message{
     transition: 0.3s;
 }
 
-section.contact-us #email:focus,
-section.contact-us #Message:focus{
-border: 1px solid rgb(45,212,191);
+.light section.contact-us #email,.light section.contact-us #Message{
+color: #232324;
+background-color: rgba(255, 255, 255, 0.178);
+border: 1px solid rgba(128,128,128,0.45);
+box-shadow: 1px 1px 1px rgba(73,73,75,0.1);
 }
 
+section.contact-us #email:focus,
+section.contact-us #Message:focus,
 section.contact-us #email:hover,
 section.contact-us #Message:hover{
 border: 1px solid rgb(45,212,191);
 }
 
+.light section.contact-us #email:focus,.light section.contact-us #Message:focus,
+.light section.contact-us #email:hover,.light section.contact-us #Message:hover{
+border: 1px solid rgb(78,80,80);
+
+}
+
  section.contact-us #Message{
-    min-width: 9rem;
+    min-height: 9rem;
     resize: vertical;
  }
 

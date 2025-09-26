@@ -56,7 +56,6 @@ header button.menu{
     display: none;
 }
 
-
 /*======================
 2- IconButton 
 ========================*/
@@ -70,6 +69,11 @@ header button.mode ,header button.menu{
     box-shadow:1px 1px 40px #2323242a;
     transition: 0.2s;
     user-select: none;
+    box-shadow: 1px 1px 40px rgba(35, 35, 35,0.16);
+}
+
+header .icon-sun{
+    color: rgb(255, 165, 0);
 }
 
 header button.mode:hover ,header button.menu:hover{
@@ -93,6 +97,8 @@ header .icon-close:hover{
     scale:1.2;
     rotate: 180deg;
 }
+
+
 
 /*=========================
 3- MODAL == POP UP
