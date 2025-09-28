@@ -153,7 +153,8 @@ border-radius: 50%;
 3-  responsive design (Media Quary)
 ====================================== */
 
- @media (max-width: 500px) {
+ /* @media (max-width: 500px) { */
+ @media (max-width< 500px) {
    
   .scroll2top{
 padding: 15px;
