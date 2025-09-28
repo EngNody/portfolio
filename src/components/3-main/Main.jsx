@@ -52,6 +52,11 @@ export default function Main() {
     
   }
   
+  // const writeText=((item) => {
+    //  navigator.clipboard.writeText(item.href);
+  // alert("https://github.com/EngNody/E-commerce-project.git");
+  // }
+  // )
 
 
   return (
@@ -124,9 +129,9 @@ export default function Main() {
 
               key={item.imgPath} className="card">
                <AnimatePresence>
-                <img width={266} src={item.imgPath} alt="" />
+                <img width={266} src={item.imgPath} alt="" style={{height:"150px !important"}}/>
 
-                <div style={{ width: "266px" }} className="box">
+                <div style={{width:"266px"}} className="box">
                   <h1 className="title">{item.projectTitle}</h1>
                   <p className="suptitle">
                     A simple landing page made with Html , Css and react. It is
@@ -134,11 +139,18 @@ export default function Main() {
                   </p>
 
                   <div className="flex icons">
-                    <div className="flex" style={{ gap: "11px" }}>
-                      <div className="icon-link"></div>
-                      <div className="icon-github"></div>
+                    <div className="flex" style={{ gap:"11px"}}>
+                      <div className="icon-link"  onClick={() => {
+                             navigator.clipboard.writeText(item.href);
+                      //  {writeText(item)}
+                      }}
+                      style={{ marginLeft: "10px", cursor: "pointer" }}></div>
+                      <a className="icon-github"   href={item.githuplink}></a>
                     </div>
-                    <a className="link flex" href="">
+                    <a className="link flex" href={item.href}  target="_blank"  rel="noopener noreferrer">
+                      {/* target="_blank" → يفتح في تاب جديدة.
+
+                          rel="noopener noreferrer" → حماية وأفضل ممارسة أمنية. */}
                       more
                       <span className="icon-arrow-right"></span>
                     </a>
