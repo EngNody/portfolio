@@ -1,6 +1,10 @@
 import React from 'react'
 import './contact.css'
 import { useForm, ValidationError } from '@formspree/react';
+import Lottie from "lottie-react";
+import donenimation from "../../../public/animation/Done.json";
+import contactanimation from "../../../public/animation/Contact Us.json";
+
 
 
 export default function Contact() {
@@ -20,7 +24,7 @@ export default function Contact() {
 
        <p className='sub-title'>Contact us for more information and Get notified when i publish something new</p>
 
-       <div className="flex">
+       <div className="flex" style={{justifyContent:"space-between"}}>
 
         <form action=""  onSubmit={handleSubmit}>
 
@@ -45,6 +49,7 @@ export default function Contact() {
         prefix="Message" 
         field="message"
         errors={state.errors}
+        // spellcheck="false"
       />
        </div>
           <button type="submit" disabled={state.submitting} className='submit'>
@@ -52,13 +57,20 @@ export default function Contact() {
             </button>
           
 
-          {state.succeeded && (<h1 style={{fontSize:"18px",marginTop:"1.7rem"}} >Thanks for joining!
-            your message has been sent successfully
+          {state.succeeded && (
+            
+            <h1 style={{fontSize:"18px",marginTop:"1.7rem",alignItems:"center",color:"var(--title)",display:"flex"}} >
+            {/* Thanks for joining! */}
+              <Lottie loop={false} style={{width:"50px",height:"50px"}} animationData={donenimation} />    
+               your message has been sent successfully
           </h1>)}
+
+
         </form>
 
 
-        <div className="animation">animation</div>
+        <div className="animation" >
+          <Lottie style={{width:"300px",height:"300px"}}  animationData={contactanimation} /></div>
        </div>
     </section>
   )

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./main.css";
 import { myProjects } from "./MyProjects";
+import { AnimatePresence, motion } from "framer-motion";
 
 
 //  تم نقل المشاريع في ملف اخر باسم MyProjects للتنظيم
@@ -114,7 +115,15 @@ export default function Main() {
 
           {Arr.map((item) => {
             return (
-              <article key={item.imgPath} className="card">
+              <motion.article
+                layout
+              initial={{ transform: "scale(0)" }}
+              animate={{ transform: "scale(1)" }}
+              exit={{ transform: "scale(0)" }}
+              transition={{damping:6,type:"spring",stiffness:50}}
+
+              key={item.imgPath} className="card">
+               <AnimatePresence>
                 <img width={266} src={item.imgPath} alt="" />
 
                 <div style={{ width: "266px" }} className="box">
@@ -135,7 +144,8 @@ export default function Main() {
                     </a>
                   </div>
                 </div>
-              </article>
+               </AnimatePresence>
+              </motion.article>
             );
           })}
         </section>
