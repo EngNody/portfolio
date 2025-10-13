@@ -126,10 +126,11 @@ export default function Main() {
               animate={{ transform: "scale(1)" }}
               exit={{ transform: "scale(0)" }}
               transition={{damping:6,type:"spring",stiffness:50}}
+              style={{maxHeight:"266"}}
 
               key={item.imgPath} className="card">
                <AnimatePresence>
-                <img width={266} src={item.imgPath} alt="" style={{height:"150px !important"}}/>
+                <img width={266} src={item.imgPath} alt="" className="imgcart"/>
 
                 <div style={{width:"266px"}} className="box">
                   <h1 className="title">{item.projectTitle}</h1>

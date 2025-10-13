@@ -138,6 +138,14 @@ justify-content: space-between;
     span ==> style={{alignSelf:"end"}} */
 }
 
+
+
+.imgcart{
+    height:150px !important;
+    aspect-ratio: 16 / 9; /* ✅ كل الصور بنفس النسبة */
+
+}
+
 /* ===================================
 3-  responsive design (Media Quary)
 ====================================== */
