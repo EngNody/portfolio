@@ -135,8 +135,9 @@ export default function Main() {
                 <div style={{width:"266px"}} className="box">
                   <h1 className="title">{item.projectTitle}</h1>
                   <p className="suptitle">
-                    A simple landing page made with Html , Css and react. It is
-                    a responsive design and works on all devices.
+                    {item.subtitle}
+                    {/* A simple landing page made with Html , Css and react. It is
+                    a responsive design and works on all devices. */}
                   </p>
 
                   <div className="flex icons">
